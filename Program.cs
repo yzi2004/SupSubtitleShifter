@@ -1,4 +1,4 @@
-﻿using SupReSyncTool;
+using SupReSyncTool;
 
 if (args.Length < 2)
 {
