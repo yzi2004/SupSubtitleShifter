@@ -1,4 +1,4 @@
-﻿namespace SupReSyncTool
+namespace SupReSyncTool
 {
     internal class SupParser
     {
@@ -23,13 +23,13 @@
                             var pg = pbr.ReadBytes(2);
                             if (pg.Length < 2)
                             {
-                                pbw.write(pg);
+                                pbw.WriteBytes(pg);
                                 continue;
                             }
                             if (pg[0] != 0x50 || pg[1] != 0x47)
                             {
                                 pbr.Back();
-                                pbw.write(pg[0]);
+                                pbw.WriteByte(pg[0]);
                                 continue;
                             }
 
@@ -75,11 +75,11 @@
 
         private void Write(ParseUseBinaryWriter writer, Segment seg)
         {
-            writer.Write(seg.PTS);
-            writer.Write(seg.DTS);
-            writer.Write(seg.segType);
-            writer.Write(seg.DataSize);
-            writer.Write(seg.Data);
+            writer.WriteFourByte(seg.PTS);
+            writer.WriteFourByte(seg.DTS);
+            writer.WriteByte(seg.segType);
+            writer.WriteTwoByte(seg.DataSize);
+            writer.WriteBytes(seg.Data);
         }
     }
 }
