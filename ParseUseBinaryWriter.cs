@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace SupReSyncTool
 {
@@ -11,30 +11,24 @@ namespace SupReSyncTool
 
         }
 
-        public void write(byte data)
+        public void WriteByte(byte data)
         {
             BaseStream.WriteByte(data);
         }
 
-        public void write(string data)
-        {
-            var bytData = Encoding.ASCII.GetBytes(data);
-            BaseStream.Write(bytData);
-        }
-
-        public void write(byte[] data)
+        public void WriteBytes(byte[] data)
         {
             BaseStream.Write(data, 0, data.Length);
         }
 
-        public void write(ushort data)
+        public void WriteTwoByte(ushort data)
         {
             var byt = (byte)((data & 0xFF00) >> 8);
             BaseStream.WriteByte(byt);
             byt = (byte)(data & 0xFF);
             BaseStream.WriteByte(byt);
         }
-        public void writeThreeByte(uint data)
+        public void WriteThreeByte(uint data)
         {
             var byt = (byte)((data & 0xFF0000) >> 16);
             BaseStream.WriteByte(byt);
@@ -43,7 +37,7 @@ namespace SupReSyncTool
             byt = (byte)(data & 0xFF);
             BaseStream.WriteByte(byt);
         }
-        public void write(uint data)
+        public void WriteFourByte(uint data)
         {
             var byt = (byte)((data & 0xFF000000) >> 24);
             BaseStream.WriteByte(byt);
