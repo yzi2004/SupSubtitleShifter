@@ -7,7 +7,7 @@ This tool help you to  change PGS format( known as *.sup file) subtitle Presenta
 It read segments header from sup file, And change Presentation Timestamp, Then write it to new file.
 
 
-## how to use ?
+## How to use ?
 
 ```
 SupSubtitleShifter [sup file] [delay time]
